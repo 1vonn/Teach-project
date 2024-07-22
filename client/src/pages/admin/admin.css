@@ -1,0 +1,104 @@
+
+.admin-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  position: relative; 
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #e2e6e9;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+p {
+  text-align: center;
+}
+
+/* Style for delete button */
+button {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 6px 12px; /* Add padding */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px; /* Font size */
+}
+
+button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+button:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+button:active {
+  background-color: #bd2130; /* Even darker red on click */
+}
+
+/* Style for logout button */
+.logout-button {
+  position:relative; 
+  top: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background-color: #ce2132; 
+  color: white; 
+  border: none; 
+  padding: 8px 16px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+
+.logout-button:hover {
+  background-color: #c82333; 
+}
+
+.logout-button:focus {
+  outline: none; 
+}
+
+.logout-button:active {
+  background-color: #bd2130; 
+}
