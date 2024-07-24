@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { apiUrl } from '../../../Utils/Config.js';
+import useStore from '../../store';
 import "./admin.css";
 
 const AdminPage = () => {
@@ -8,6 +9,8 @@ const AdminPage = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); 
+  const setLoggedIn = useStore((state) => state.setLoggedIn);
+  const setAdmin = useStore((state) => state.setAdmin);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +40,7 @@ const AdminPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${apiUrl}/api/user/${id}`, {
+      const response = await fetch(`${apiUrl}/api/user/user/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -51,8 +54,10 @@ const AdminPage = () => {
   };
 
   const handleLogout = () => {
-    // Redirect to the admin login page
-    navigate('/adminlogin');
+    setLoggedIn(false); 
+    setAdmin(false); 
+    localStorage.removeItem('adminToken'); // Remove token from localStorage
+    navigate('/adminlogin'); 
   };
 
   if (loading) return <p>Loading...</p>;

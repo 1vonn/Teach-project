@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import userRoute from './routers/user.route.js';
 import bookRoute from './routers/booking.route.js';
 import authRoute from './routers/auth.route.js';
+import serviceRoute from './routers/service.route.js';
 
 config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/orders", bookRoute);
 app.use("/api/admin", authRoute);
+app.use("/api/service", serviceRoute);
 
 
 

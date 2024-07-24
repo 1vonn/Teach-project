@@ -45,3 +45,17 @@ model Admins{
 
   @@map("Admins_table")
 }
+
+model Service {
+  id             Int      @id @default(autoincrement())
+  fullName       String
+  serviceProvider String
+  email          String
+  price          Float
+  description    String
+  profilePicture String
+  serviceImage   String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  @@map("service_table")
+}

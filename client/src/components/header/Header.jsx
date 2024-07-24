@@ -1,27 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
 import './header.css';
 import useStore from "../../store.js";
+import { RiAdminFill } from "react-icons/ri";
 
 const Header = () => {
   const isLoggedIn = useStore((state) => state.isLoggedIn);
-  // const setIsLoggedIn = useStore((state) => state.setIsLoggedIn);
+  const isAdmin = useStore((state) => state.isAdmin);
+  const setLoggedIn = useStore((state) => state.setLoggedIn);
+  const setAdmin = useStore((state) => state.setAdmin);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // setIsLoggedIn(false);  // Update the state to log out the user
+    setLoggedIn(false); 
+    setAdmin(false); 
     navigate("/getintouch");
-    // window.location.reload(); // Refresh the page
-  
   };
+
+  // Hide header if admin is logged in
+  if (isAdmin) return null;
 
   return (
     <header>
       <div className="header-content">
         <nav className="header-nav">
           <ol className="header-nav-content">
-            <li className="header-nav-item"><Link to="/">Home</Link></li>
-            <li className="header-nav-item"><Link to="/getintouch">Get In Touch</Link></li>
-            <li className="header-nav-item"><Link to="/adminlogin">Admin Login</Link></li>
+            {!isLoggedIn && (
+              <>
+                <li className="header-nav-item"><Link to="/">Home</Link></li>
+                <li className="header-nav-item"><Link to="/getintouch">Get In Touch</Link></li>
+                <li className="header-nav-item"><Link to="/adminlogin">Admin<RiAdminFill /></Link></li>
+              </>
+            )}
             {isLoggedIn && (
               <>
                 <li className="header-nav-item"><Link to="/service">Service Providers</Link></li>

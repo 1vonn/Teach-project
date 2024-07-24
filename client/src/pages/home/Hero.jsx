@@ -56,7 +56,7 @@ const Hero = () => {
   return (
     <div className="hero-content">
       <div className="hero-content1">
-        <h2>Make your World Clean As Mine</h2>
+        <h2>Make your House Clean As Mine</h2>
       </div>
       <div className="sign-up-form">
         <form onSubmit={formik.handleSubmit}>
